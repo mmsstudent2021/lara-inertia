@@ -1,7 +1,8 @@
 import { createApp, h } from 'vue'
-import { createInertiaApp } from '@inertiajs/inertia-vue3'
-import Swal from 'sweetalert2'
+import { createInertiaApp,Link } from '@inertiajs/inertia-vue3'
+
 import { InertiaProgress } from '@inertiajs/progress'
+import VueSweetalert2 from 'vue-sweetalert2';
 
 InertiaProgress.init({
     color : "var(--bs-primary)",
@@ -13,6 +14,8 @@ createInertiaApp({
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
             .use(plugin)
+            .use(VueSweetalert2)
+            .component("Link",Link)
             .mount(el)
     },
 })
